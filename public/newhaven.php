@@ -26,7 +26,7 @@ $summary = 'IndieWebCamp New Haven 2019 is a gathering for independent web creat
   <script src="/assets/jquery-2.2.0.min.js"></script>
   <script src="/semantic/semantic.min.js"></script>
   <script src="/assets/leaflet/leaflet.js"></script>
-<!--  <script src='https://js.tito.io/v1' async></script>-->
+ <script src='https://js.tito.io/v1' async></script>
 
   <meta property="og:url" content="<?= $url ?>">
   <meta property="og:type" content="website">
@@ -63,13 +63,13 @@ $summary = 'IndieWebCamp New Haven 2019 is a gathering for independent web creat
 <div class="ui large top fixed hidden menu">
   <div class="ui container">
     <?php include('../templates/'.$event.'/nav.php'); ?>
-<!--
+
     <div class="right menu">
       <div class="item">
         <a class="ui primary button">Sign Up</a>
       </div>
     </div>
- -->
+ 
   </div>
 </div>
 
