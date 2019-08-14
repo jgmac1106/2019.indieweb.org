@@ -1,15 +1,11 @@
 <?php
-header('Location: https://indieweb.org/2019');
-die();
-
-
-$event = 'baltimore';
-$title = 'IndieWebCamp Baltimore';
-$date = 'Jan 20-21, 2018';
-$year = 2018;
-$city = 'Baltimore, Maryland';
-$url = 'https://2018.indieweb.org/baltimore';
-$summary = 'IndieWebCamp Baltimore 2018 is a gathering for independent web creators of all kinds, from graphic artists, to designers, UX engineers, coders, hackers, to share ideas, actively work on creating for their own personal websites, and build upon each others creations.';
+$event = 'nyc';
+$title = 'IndieWebCamp NYC';
+$date = 'October 5-6, 2019';
+$year = 2019;
+$city = 'New York City, NY';
+$url = 'https://2019.indieweb.org/nyc';
+$summary = 'IndieWebCamp NYC 2019 is a two-day maker event for creating and/or improving your personal website. All levels welcome! One of several 2019 IndieWebCamps and the seventh IndieWebCamp in NYC!';
 include(dirname(__FILE__).'/../lib/rsvps.php');
 ?>
 <!DOCTYPE html>
@@ -25,7 +21,7 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
 
   <link rel="stylesheet" type="text/css" href="/semantic/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/icomoon/style.css">
-  <link rel="stylesheet" type="text/css" href="/assets/styles.css">
+  <link rel="stylesheet" type="text/css" href="/assets/styles.css?2">
   <link rel="stylesheet" href="/assets/leaflet/leaflet.css" />
   <script src="/assets/jquery-2.2.0.min.js"></script>
   <script src="/semantic/semantic.min.js"></script>
@@ -36,6 +32,7 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
   <meta property="og:type" content="website">
   <meta property="og:title" content="<?= $title ?> - <?= $date ?> - <?= $city ?>">
   <meta property="og:description" content="<?= htmlspecialchars($summary) ?>">
+  <meta property="og:image" content="https://2019.indieweb.org/images/indiewebcamp-nyc-venues.jpg">
 
   <script>
   $(document)
@@ -62,8 +59,24 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
     })
   ;
   </script>
+  <style>
+    body.show-banner {
+      padding-top: 40px !important;
+    }
+    body.show-banner .top.menu {
+      top: 40px;
+    }
+  </style>
 </head>
-<body class="h-event">
+<body class="h-event -show-banner">
+
+<!--
+<div style="display: block; position: fixed; top: 0; height: 40px; width: 100%; background: #E63630; text-align: center; z-index: 1000; color: white;">
+  <div style="padding: 10px;">
+    New: <a href="https://aaronparecki.com/2018/06/23/5/indieweb-summit" style="color: white; font-style: bold; text-decoration: underline;">Final details for IndieWeb Summit!</a>
+  </div>
+</div>
+-->
 
 <!-- Following Menu -->
 <div class="ui large top fixed hidden menu">
@@ -118,24 +131,39 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
   <div class="ui vertical stripe segment" id="register">
     <div class="ui text container">
       <h3 class="ui header">Register</h3>
-      <tito-widget event="indiewebcamp/baltimore-2018"><a href="https://ti.to/indiewebcamp/baltimore-2018">Get Tickets</a></tito-widget>
+
+      <tito-widget event="indiewebcamp/indiewebcamp-nyc-2019"><a href="http://tickets.indieweb.org/indiewebcamp/indiewebcamp-nyc-2019">Get Tickets</a></tito-widget>
+
+      <p style="font-size: 0.9em; margin-top: 0.5em;">Have a discount code? <a href="https://ti.to/indiewebcamp/indiewebcamp-nyc-2019">Enter it here!</a></p>
 
     </div>
   </div>
 
-
-  <div class="ui vertical stripe segment" id="rsvps">
+  <div class="ui vertical stripe segment" id="code-of-conduct">
     <div class="ui text container">
-      <h3 class="ui header">Indie RSVPs</h3>
+      <h3 class="ui header">Code of Conduct</h3>
+      <p>All participants are expected to follow the
+        <a href="https://indieweb.org/code-of-conduct">IndieWeb Code of Conduct</a>
+        and the
+        <a href="https://www.mozilla.org/en-US/about/governance/policies/participation/">Mozilla Community Participation Guidelines</a>.
+        We take this seriously, and by attending IndieWeb Summit you agree to do the same.</p>
+      <p>Need help? You can reach the IndieWeb Code of Conduct responders through the email below.
+        Responders will be monitoring this email address throughout the event.</p>
+      <ul>
+        <li><a href="mailto:conduct@2019.indieweb.org">conduct@2019.indieweb.org</a></li>
+      </ul>
+    </div>
+  </div>
 
-      <p>See <a href="https://indieweb.org/RSVP">indieweb.org/RSVP</a> for instructions on how to create an RSVP post. Once you've created the RSVP post which links to this page, send a Webmention and you'll appear below!</p>
+  <div class="ui vertical stripe segment h-feed" id="rsvps">
+    <div class="ui text container">
+      <?php include('../templates/summit/tito-registrations.php'); ?>
+
+      <h3 class="ui header" id="indie-rsvps">Indie RSVPs</h3>
+
+      <p>See <a href="https://indieweb.org/RSVP">indieweb.org/RSVP</a> for instructions on how to create an RSVP post. Once you've created the RSVP post which links to this page, send a Webmention and you'll appear below! Please make sure to still register for a ticket above though!</p>
 
       <?php include('../templates/show-rsvps.php'); ?>
-
-      <h3 class="ui header">Tickets</h3>
-
-      <p>The people below registered for a ticket through the registration system.</p>
-      <?php include('../templates/show-tito-tickets.php'); ?>
 
     </div>
   </div>
@@ -173,11 +201,10 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
   <div class="ui vertical stripe segment" id="travel-assistance">
     <div class="ui text container">
       <h3 class="ui header">Travel Assistance</h3>
-      <?php include('../templates/'.$event.'/assistance.php'); ?>
+      <?php // include('../templates/'.$event.'/assistance.php'); ?>
     </div>
   </div>
   -->
-
 
   <div class="ui vertical stripe segment" id="sponsors">
     <div class="ui text container">
@@ -186,14 +213,12 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
     </div>
   </div>
 
-
-
   <div class="ui inverted vertical footer segment gold-bkg">
     <div class="ui container">
       <p><?= $title ?> &bull; <?= $date ?> &bull; <?= $city ?></p>
       <ul>
         <li><a href="https://indieweb.org/">IndieWebCamp Home Page</a></li>
-        <li><a href="https://indieweb.org/code-of-conduct">Code of Conduct</a></li>
+        <li><a href="https://indieweb.org/code-of-conduct">IndieWeb Code of Conduct</a></li>
         <li><a href="https://indieweb.org/images/2/2d/indiewebcamp-sponsorship-prospectus.pdf">Sponsorship Prospectus</a> (PDF)</li>
       </ul>
     </div>
@@ -203,8 +228,8 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
 <script>
 var map = L.map('map', {
   scrollWheelZoom: false,
-  center: [39.277222, -76.612136],
-  zoom: 13
+  center: [40.71092, -74.00515],
+  zoom: 17
 });
 
 var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
@@ -212,15 +237,15 @@ var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/ligh
 });
 map.addLayer(layer);
 
-var marker = L.marker([39.277222, -76.612136]).addTo(map);
-marker.bindPopup("<b>Digital Harbor Foundation Tech Center</b><br>1045 Light St.<br>Baltimore, Maryland").openPopup();
+var marker = L.marker([40.7101649, -74.0059586]).addTo(map);
+marker.bindPopup("<b>Siedenberg School, Pace University</b><br>163 William St Floor 2<br>New York City, NY").openPopup();
 
-// var marker2 = L.marker([45.526159, -122.675330]).addTo(map);
-// marker2.bindPopup("<b>Pints</b><br>412 NW 5th Ave.<br>Portland, Oregon");
+var marker2 = L.marker([40.71165, -74.00537]).addTo(map);
+marker2.bindPopup("<b>Pace University</b><br>1 Pace Plaza<br>New York City, NY");
 
-// $(function(){
-//   $(".popup").popup();
-// });
+$(function(){
+  $(".popup").popup();
+});
 
 </script>
 <script>

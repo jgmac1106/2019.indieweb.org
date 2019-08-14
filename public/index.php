@@ -1,15 +1,11 @@
 <?php
-header('Location: https://indieweb.org/2019');
-die();
-
 $event = 'summit';
-$title = 'IndieWeb Summit';
-$date = 'June 26-27, 2018';
-$year = 2018;
+$title = 'IndieWeb Events';
+$date = '2019';
+$year = 2019;
 $city = 'Portland, Oregon';
-$url = 'https://2018.indieweb.org/';
-$summary = 'The eighth annual gathering for independent web creators of all kinds, from graphic artists, to designers, UX engineers, coders, hackers, to share ideas, actively work on creating for their own personal websites, and build upon each others creations.';
-include(dirname(__FILE__).'/../lib/rsvps.php');
+$url = 'https://2019.indieweb.org/';
+$summary = 'IndieWeb upcoming events.';
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +14,7 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title><?= $title ?> <?= $year ?> - <?= $city ?></title>
+  <title><?= $title ?> <?= $year ?></title>
 
   <link rel="webmention" href="/webmention.php">
 
@@ -33,131 +29,145 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
 
   <meta property="og:url" content="<?= $url ?>">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="<?= $title ?> - <?= $date ?> - <?= $city ?>">
+  <meta property="og:title" content="<?= $title ?> - <?= $date ?>">
   <meta property="og:description" content="<?= htmlspecialchars($summary) ?>">
-  <meta property="og:image" content="https://2018.indieweb.org/assets/2014-indieweb-movement.jpg">
-
-  <script>
-  $(document)
-    .ready(function() {
-
-      // fix menu when passed
-      $('.masthead')
-        .visibility({
-          once: false,
-          onBottomPassed: function() {
-            $('.fixed.menu').transition('fade in');
-          },
-          onBottomPassedReverse: function() {
-            $('.fixed.menu').transition('fade out');
-          }
-        })
-      ;
-
-      // create sidebar and attach to menu open
-      $('.ui.sidebar')
-        .sidebar('attach events', '.toc.item')
-      ;
-
-    })
-  ;
-  </script>
 </head>
-<body class="h-event" style="padding-top: 40px !important;">
+<body>
 
-<div style="display: block; position: fixed; top: 0; height: 40px; width: 100%; background: #E63630; text-align: center; z-index: 1000; color: white;">
-  <div style="padding: 10px;">
-    New: <a href="https://aaronparecki.com/2018/06/23/5/indieweb-summit" style="color: white; font-style: bold; text-decoration: underline;">Final details for IndieWeb Summit!</a>
-  </div>
-</div>
-
-<!-- Following Menu -->
-<div class="ui large top fixed hidden menu" style="top: 40px;">
-  <div class="ui container">
-    <?php include('../templates/'.$event.'/nav.php'); ?>
-<!--
-    <div class="right menu">
-      <div class="item">
-        <a class="ui primary button">Sign Up</a>
+  <div class="ui vertical stripe segment orange-bkg">
+    <div class="ui text container">
+      <div style="font-size: 2em; text-align: center; color: white" class="carrot-white">
+        IndieWebCamps in 2019
       </div>
     </div>
- -->
   </div>
-</div>
-
-<!-- Sidebar Menu -->
-<div class="ui vertical inverted sidebar menu">
-  <?php include('../templates/'.$event.'/nav.php'); ?>
-</div>
 
 
 <!-- Page Contents -->
 <div class="pusher">
-  <div class="ui inverted vertical masthead center aligned segment gold-bkg">
+  <div class="ui vertical stripe segment h-feed" id="events">
+    <div class="ui text container">
 
-    <div class="ui container">
-      <div class="ui large secondary inverted pointing menu">
-        <a class="toc item">
-          <i class="sidebar icon"></i>
-        </a>
-        <?php include('../templates/'.$event.'/nav.php'); ?>
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="https://indieweb.org/2019/Amsterdam">IndieWebCamp Amsterdam</a>
+        </h3>
+        <p>
+          <span class="p-location location">Amsterdam, Netherlands</span><br />
+          <time class="dt-start dtstart" datetime="2019-09-28">September 28</time>-<time class="dt-end dtend" datetime="2019-09-29">29, 2019</time>
+        </p>
       </div>
+
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="https://indieweb.org/2019/Oxford">IndieWebCamp Oxford</a>
+        </h3>
+        <p>
+          <span class="p-location location">Oxford, England</span><br />
+          <time class="dt-start dtstart" datetime="2019-09-28">September 28, 2019</time>
+        </p>
+      </div>
+
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="/nyc">IndieWebCamp New York City</a>
+        </h3>
+        <p>
+          <span class="p-location location">New York City, New York</span><br />
+          <time class="dt-start dtstart" datetime="2019-10-05">October 5</time>-<time class="dt-end dtend" datetime="2019-10-06">6, 2019</time>
+        </p>
+      </div>
+
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="https://indieweb.org/2019/Brighton">IndieWebCamp Brighton</a>
+        </h3>
+        <p>
+          <span class="p-location location">Brighton, England</span><br />
+          <time class="dt-start dtstart" datetime="2019-10-19">October 19</time>-<time class="dt-end dtend" datetime="2019-10-20">20, 2019</time>
+        </p>
+      </div>
+
+
+      <h2 style="margin-top:6em;">Past Events</h2>
+
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="/austin">IndieWebCamp Austin</a>
+        </h3>
+        <p>
+          <span class="p-location location">Capital Factory<br />
+          Austin, TX</span><br />
+          <time class="dt-start dtstart" datetime="2019-02-23">February 23</time>-<time class="dt-end dtend" datetime="2019-02-24">24, 2019</time>
+        </p>
+      </div>
+
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="/online">IndieWebCamp Online</a>
+        </h3>
+        <p>
+          <time class="dt-start dtstart" datetime="2019-03-09">March 9</time>-<time class="dt-end dtend" datetime="2019-03-10">10, 2019</time>
+        </p>
+      </div>
+
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="/newhaven">IndieWebCamp New Haven</a>
+        </h3>
+        <p>
+          <span class="p-location location">Southern Connecticut State University, Davis Hall</span><br />
+          <time class="dt-start dtstart" datetime="2019-03-30">March 30</time>-<time class="dt-end dtend" datetime="2019-03-31">31, 2019</time>
+        </p>
+      </div>
+
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="/berlin">IndieWebCamp Berlin</a>
+        </h3>
+        <p>
+          <span class="p-location location">Mozilla Berlin<br />
+          Berlin, Germany</span><br />
+          <time class="dt-start dtstart" datetime="2019-05-04">May 4</time>-<time class="dt-end dtend" datetime="2019-05-05">5, 2019</time>
+        </p>
+      </div>
+
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="https://indieweb.org/2019/Düsseldorf">IndieWebCamp Düsseldorf</a>
+        </h3>
+        <p>
+          <span class="p-location location">Düsseldorf, Germany</span><br />
+          <time class="dt-start dtstart" datetime="2019-05-11">May 11</time>-<time class="dt-end dtend" datetime="2019-05-12">12, 2019</time>
+        </p>
+      </div>
+
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="https://indieweb.org/2019/Utrecht">IndieWebCamp Utrecht</a>
+        </h3>
+        <p>
+          <span class="p-location location">Utrecht, Netherlands</span><br />
+          <time class="dt-start dtstart" datetime="2019-05-18">May 18</time>-<time class="dt-end dtend" datetime="2019-05-19">19, 2019</time>
+        </p>
+      </div>
+
+      <div class="h-event vevent">
+        <h3 class="ui header p-name summary">
+          <a class="u-url url" href="/summit">IndieWeb Summit</a>
+        </h3>
+        <p>
+          <span class="p-location location">Portland, Oregon</span><br />
+          <time class="dt-start dtstart" datetime="2019-06-29">June 29</time>-<time class="dt-end dtend" datetime="2019-06-30">30, 2019</time>
+        </p>
+      </div>
+
+      <div style="margin-top: 100px;">
+        <p>See more related events at <a href="https://indieweb.org/events">indieweb.org/events</a></p>
+      </div>
+
     </div>
-
-    <div class="ui text container event-header">
-
-      <h1 class="ui inverted header p-name">
-        <?= $title ?>
-      </h1>
-
-      <h2><?= $date ?></h2>
-      <h2><?= $city ?></h2>
-
-
-      <p class="summary p-summary"><?= htmlspecialchars($summary) ?></p>
-
-    </div>
-
   </div>
-
-
-  <div class="ui vertical stripe segment" id="register">
-    <div class="ui text container">
-      <h3 class="ui header">Register</h3>
-
-      <tito-widget event="indiewebcamp/summit-2018"><a href="http://tickets.indieweb.org/indiewebcamp/summit-2018">Get Tickets</a></tito-widget>
-
-      <p style="font-size: 0.9em; margin-top: 0.5em;">Have a discount code? <a href="https://ti.to/indiewebcamp/summit-2018">Enter it here!</a></p>
-
-    </div>
-  </div>
-
-
-  <div class="ui vertical stripe segment" id="rsvps">
-    <div class="ui text container">
-      <h3 class="ui header">Indie RSVPs</h3>
-
-      <p>See <a href="https://indieweb.org/RSVP">indieweb.org/RSVP</a> for instructions on how to create an RSVP post. Once you've created the RSVP post which links to this page, send a Webmention and you'll appear below!</p>
-
-      <?php include('../templates/show-rsvps.php'); ?>
-
-      <h3 class="ui header">Tickets</h3>
-
-      <p>The people below registered for a ticket through the registration system.</p>
-      <?php include('../templates/show-tito-tickets.php'); ?>
-
-    </div>
-  </div>
-
-
-
-  <div class="ui vertical stripe segment" id="schedule">
-    <div class="ui text container">
-      <h3 class="ui header">Schedule</h3>
-      <?php include('../templates/'.$event.'/schedule.php'); ?>
-    </div>
-  </div>
-
 
   <div class="ui vertical stripe segment orange-bkg" id="social-media-section">
     <div class="ui text container">
@@ -172,64 +182,8 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
     </div>
   </div>
 
-
-  <div class="ui vertical stripe segment nopadding" style="border-bottom: 0;" id="location">
-    <div id="map"></div>
-  </div>
-
-
-  <div class="ui vertical stripe segment" id="travel-assistance">
-    <div class="ui text container">
-      <h3 class="ui header">Travel Assistance</h3>
-      <?php include('../templates/'.$event.'/assistance.php'); ?>
-    </div>
-  </div>
-
-
-  <div class="ui vertical stripe segment" id="sponsors">
-    <div class="ui text container">
-      <h3 class="ui header">Sponsors</h3>
-      <?php include('../templates/'.$event.'/sponsors.php'); ?>
-    </div>
-  </div>
-
-
-
-  <div class="ui inverted vertical footer segment gold-bkg">
-    <div class="ui container">
-      <p><?= $title ?> &bull; <?= $date ?> &bull; <?= $city ?></p>
-      <ul>
-        <li><a href="https://indieweb.org/">IndieWebCamp Home Page</a></li>
-        <li><a href="https://indieweb.org/code-of-conduct">IndieWeb Code of Conduct</a></li>
-        <li><a href="https://indieweb.org/images/2/2d/indiewebcamp-sponsorship-prospectus.pdf">Sponsorship Prospectus</a> (PDF)</li>
-      </ul>
-    </div>
-  </div>
 </div>
 
-<script>
-var map = L.map('map', {
-  scrollWheelZoom: false,
-  center: [45.518638, -122.686005],
-  zoom: 13
-});
-
-var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-});
-map.addLayer(layer);
-
-var marker = L.marker([45.518638, -122.686005]).addTo(map);
-marker.bindPopup("<b>Eliot Center</b><br>1226 SW Salmon St<br>Portland, Oregon").openPopup();
-
-var marker2 = L.marker([45.521450, -122.672375]).addTo(map);
-marker2.bindPopup("<b>Pine Street Market</b><br>126 SW 2nd Ave.<br>Portland, Oregon");
-
-$(function(){
-  $(".popup").popup();
-});
-
-</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

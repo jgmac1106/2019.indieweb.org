@@ -1,15 +1,11 @@
 <?php
-header('Location: https://indieweb.org/2019');
-die();
-
-
-$event = 'baltimore';
-$title = 'IndieWebCamp Baltimore';
-$date = 'Jan 20-21, 2018';
-$year = 2018;
-$city = 'Baltimore, Maryland';
-$url = 'https://2018.indieweb.org/baltimore';
-$summary = 'IndieWebCamp Baltimore 2018 is a gathering for independent web creators of all kinds, from graphic artists, to designers, UX engineers, coders, hackers, to share ideas, actively work on creating for their own personal websites, and build upon each others creations.';
+$event = 'online';
+$title = 'IndieWebCamp Online';
+$date = 'Mar 8-10, 2019';
+$year = 2019;
+$city = 'Online';
+$url = 'https://2019.indieweb.org/online';
+$summary = 'IndieWebCamp Online 2019 is a gathering for independent web creators of all kinds, from graphic artists, to designers, UX engineers, coders, hackers, to share ideas, actively work on creating for their own personal websites, and build upon each others creations.';
 include(dirname(__FILE__).'/../lib/rsvps.php');
 ?>
 <!DOCTYPE html>
@@ -118,7 +114,7 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
   <div class="ui vertical stripe segment" id="register">
     <div class="ui text container">
       <h3 class="ui header">Register</h3>
-      <tito-widget event="indiewebcamp/baltimore-2018"><a href="https://ti.to/indiewebcamp/baltimore-2018">Get Tickets</a></tito-widget>
+      <tito-widget event="indiewebcamp/indiewebcamp-online-2019"><a href="https://ti.to/indiewebcamp/indiewebcamp-online-2019">Get Tickets</a></tito-widget>
 
     </div>
   </div>
@@ -130,12 +126,12 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
 
       <p>See <a href="https://indieweb.org/RSVP">indieweb.org/RSVP</a> for instructions on how to create an RSVP post. Once you've created the RSVP post which links to this page, send a Webmention and you'll appear below!</p>
 
-      <?php include('../templates/show-rsvps.php'); ?>
+        <?php include('../templates/show-rsvps.php'); ?>
 
-      <h3 class="ui header">Tickets</h3>
-
-      <p>The people below registered for a ticket through the registration system.</p>
-      <?php include('../templates/show-tito-tickets.php'); ?>
+<!--      <h3 class="ui header">Tickets</h3>-->
+<!---->
+<!--      <p>The people below registered for a ticket through the registration system.</p>-->
+        <?php //include('../templates/show-tito-tickets.php'); ?>
 
     </div>
   </div>
@@ -163,17 +159,17 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
     </div>
   </div>
 
-
-  <div class="ui vertical stripe segment nopadding" style="border-bottom: 0;" id="location">
-    <div id="map"></div>
-  </div>
+<!--No map needed for online-->
+<!--  <div class="ui vertical stripe segment nopadding" style="border-bottom: 0;" id="location">-->
+<!--    <div id="map"></div>-->
+<!--  </div>-->
 
 
   <!--
   <div class="ui vertical stripe segment" id="travel-assistance">
     <div class="ui text container">
       <h3 class="ui header">Travel Assistance</h3>
-      <?php include('../templates/'.$event.'/assistance.php'); ?>
+      <?php //include('../templates/'.$event.'/assistance.php'); ?>
     </div>
   </div>
   -->
@@ -200,29 +196,6 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
   </div>
 </div>
 
-<script>
-var map = L.map('map', {
-  scrollWheelZoom: false,
-  center: [39.277222, -76.612136],
-  zoom: 13
-});
-
-var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-});
-map.addLayer(layer);
-
-var marker = L.marker([39.277222, -76.612136]).addTo(map);
-marker.bindPopup("<b>Digital Harbor Foundation Tech Center</b><br>1045 Light St.<br>Baltimore, Maryland").openPopup();
-
-// var marker2 = L.marker([45.526159, -122.675330]).addTo(map);
-// marker2.bindPopup("<b>Pints</b><br>412 NW 5th Ave.<br>Portland, Oregon");
-
-// $(function(){
-//   $(".popup").popup();
-// });
-
-</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

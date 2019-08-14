@@ -1,12 +1,12 @@
 <?php
-$event = 'austin';
+$event = 'newhaven';
 $title = 'IndieWebCamp New Haven';
 $date = 'Mar 30-31, 2019';
 $year = 2019;
 $city = 'New Haven, CT';
 $url = 'https://2019.indieweb.org/newhaven';
 $summary = 'IndieWebCamp New Haven 2019 is a gathering for independent web creators of all kinds, from graphic artists, to designers, UX engineers, coders, hackers, to share ideas, actively work on creating for their own personal websites, and build upon each others creations.';
-//include(dirname(__FILE__).'/../lib/rsvps.php');
+include(dirname(__FILE__).'/../lib/rsvps.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,13 +26,12 @@ $summary = 'IndieWebCamp New Haven 2019 is a gathering for independent web creat
   <script src="/assets/jquery-2.2.0.min.js"></script>
   <script src="/semantic/semantic.min.js"></script>
   <script src="/assets/leaflet/leaflet.js"></script>
-<!--  <script src='https://js.tito.io/v1' async></script>-->
+<script src='https://js.tito.io/v1' async></script
 
   <meta property="og:url" content="<?= $url ?>">
   <meta property="og:type" content="website">
   <meta property="og:title" content="<?= $title ?> - <?= $date ?> - <?= $city ?>">
   <meta property="og:description" content="<?= htmlspecialchars($summary) ?>">
-  <meta property="og:image" content="https://2017.indieweb.org/assets/2014-indieweb-movement.jpg">
 
   <script>
   $(document)
@@ -63,13 +62,13 @@ $summary = 'IndieWebCamp New Haven 2019 is a gathering for independent web creat
 <div class="ui large top fixed hidden menu">
   <div class="ui container">
     <?php include('../templates/'.$event.'/nav.php'); ?>
-<!--
+
     <div class="right menu">
       <div class="item">
         <a class="ui primary button">Sign Up</a>
       </div>
     </div>
- -->
+
   </div>
 </div>
 
@@ -111,28 +110,28 @@ $summary = 'IndieWebCamp New Haven 2019 is a gathering for independent web creat
 
   <div class="ui vertical stripe segment" id="register">
     <div class="ui text container">
-      <h3 class="ui header">Registration TBA</h3>
-<!--      <tito-widget event="indiewebcamp/baltimore-2018"><a href="https://ti.to/indiewebcamp/baltimore-2018">Get Tickets</a></tito-widget>-->
+      <h3 class="ui header">Registration</h3>
+     <tito-widget event="indiewebcamp/new-haven"><a href="https://ti.to/indiewebcamp/new-haven">Get Tickets</a></tito-widget>
 
     </div>
   </div>
 
 
-<!--  <div class="ui vertical stripe segment" id="rsvps">-->
-<!--    <div class="ui text container">-->
-<!--      <h3 class="ui header">Indie RSVPs</h3>-->
+  <div class="ui vertical stripe segment" id="rsvps">
+ <div class="ui text container">
+<h3 class="ui header">Indie RSVPs</h3>
 
-<!--      <p>See <a href="https://indieweb.org/RSVP">indieweb.org/RSVP</a> for instructions on how to create an RSVP post. Once you've created the RSVP post which links to this page, send a Webmention and you'll appear below!</p>-->
+  <p>See <a href="https://indieweb.org/RSVP">indieweb.org/RSVP</a> for instructions on how to create an RSVP post. Once you've created the RSVP post which links to this page, send a Webmention and you'll appear below!</p>
 
-        <?php //include('../templates/show-rsvps.php'); ?>
+        <?php include('../templates/show-rsvps.php'); ?>
 
-<!--      <h3 class="ui header">Tickets</h3>-->
+  <h3 class="ui header">Tickets</h3>
 
-<!--      <p>The people below registered for a ticket through the registration system.</p>-->
-      <?php //include('../templates/show-tito-tickets.php'); ?>
+     <p>The people below registered for a ticket through the registration system.</p>
+      <?php include('../templates/show-tito-tickets.php'); ?>
 
-<!--    </div>-->
-<!--  </div>-->
+  </div>
+ </div>
 
 
 
@@ -197,14 +196,14 @@ $summary = 'IndieWebCamp New Haven 2019 is a gathering for independent web creat
 <script>
 var map = L.map('map', {
   scrollWheelZoom: false,
-  center: [41.3326, 72.9475],
+  center: [41.3326, -72.9475],
   zoom: 13
 });
 var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 });
 map.addLayer(layer);
-var marker = L.marker([41.3326, 72.9475]).addTo(map);
+var marker = L.marker([41.3326, -72.9475]).addTo(map);
 marker.bindPopup("<b>Southern Connecticut State University</b><br>501 Crescent Avenue.<br>New Haven, CT 06117.").openPopup();
 // var marker2 = L.marker([41.3326, 72.9475]).addTo(map);
 // marker2.bindPopup("<b>Pints</b><br>412 NW 5th Ave.<br>Portland, Oregon");

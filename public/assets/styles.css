@@ -316,8 +316,11 @@
 .ui.vertical.stripe h3 {
   font-size: 2em;
 }
+.ui.vertical.stripe h4 {
+  font-size: 1.3em;
+}
 .ui.vertical.stripe .button + h3,
-.ui.vertical.stripe p + h3 {
+#events h3 {
   margin-top: 3em;
 }
 .ui.vertical.stripe .floated.image {
@@ -393,3 +396,12 @@
   font-size: 14px;
 }
 
+@media only screen and (max-width: 700px) {
+  .speaker {
+    width: 45%;
+    margin: 25px 6px;
+  }
+  .keynote-speakers {
+    flex-wrap: wrap;
+  }
+}

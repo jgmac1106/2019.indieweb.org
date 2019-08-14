@@ -1,10 +1,10 @@
 <?php
-function gravatar($email) {
-  return 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($email))).'.jpg?d='.urlencode('https://2019.indieweb.org/assets/no-photo.png');
+function gravatar($email, $event) {
+  return 'https://2019.indieweb.org/img.php?event='.$event.'&img='.md5(strtolower(trim($email))).'.jpg';
 }
 
 function loadRSVPs($event) {
-  $files = glob(dirname(__FILE__).'/../data/'.$event.'/*/*.json');
+  $files = glob(dirname(__FILE__).'/../data/'.$event.'/*/post.json');
   $rsvps = [];
   foreach($files as $file) {
     $data = json_decode(file_get_contents($file), true);

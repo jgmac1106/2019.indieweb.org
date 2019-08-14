@@ -1,15 +1,11 @@
 <?php
-header('Location: https://indieweb.org/2019');
-die();
-
-
-$event = 'baltimore';
-$title = 'IndieWebCamp Baltimore';
-$date = 'Jan 20-21, 2018';
-$year = 2018;
-$city = 'Baltimore, Maryland';
-$url = 'https://2018.indieweb.org/baltimore';
-$summary = 'IndieWebCamp Baltimore 2018 is a gathering for independent web creators of all kinds, from graphic artists, to designers, UX engineers, coders, hackers, to share ideas, actively work on creating for their own personal websites, and build upon each others creations.';
+$event = 'berlin';
+$title = 'IndieWebCamp Berlin';
+$date = 'May 4–5, 2019';
+$year = 2019;
+$city = 'Berlin, Germany';
+$url = 'https://2019.indieweb.org/berlin';
+$summary = 'IndieWebCamp Berlin is an all-levels BarCamp-like collaboration in Berlin for two days of keynotes, brainstorming, creating, teaching, and helping gain more control over our data and lives online!';
 include(dirname(__FILE__).'/../lib/rsvps.php');
 ?>
 <!DOCTYPE html>
@@ -118,7 +114,7 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
   <div class="ui vertical stripe segment" id="register">
     <div class="ui text container">
       <h3 class="ui header">Register</h3>
-      <tito-widget event="indiewebcamp/baltimore-2018"><a href="https://ti.to/indiewebcamp/baltimore-2018">Get Tickets</a></tito-widget>
+      <tito-widget event="indiewebcamp/berlin-2019"><a href="https://ti.to/indiewebcamp/berlin-2019">Get Tickets</a></tito-widget>
 
     </div>
   </div>
@@ -130,7 +126,7 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
 
       <p>See <a href="https://indieweb.org/RSVP">indieweb.org/RSVP</a> for instructions on how to create an RSVP post. Once you've created the RSVP post which links to this page, send a Webmention and you'll appear below!</p>
 
-      <?php include('../templates/show-rsvps.php'); ?>
+        <?php include('../templates/show-rsvps.php'); ?>
 
       <h3 class="ui header">Tickets</h3>
 
@@ -169,16 +165,6 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
   </div>
 
 
-  <!--
-  <div class="ui vertical stripe segment" id="travel-assistance">
-    <div class="ui text container">
-      <h3 class="ui header">Travel Assistance</h3>
-      <?php include('../templates/'.$event.'/assistance.php'); ?>
-    </div>
-  </div>
-  -->
-
-
   <div class="ui vertical stripe segment" id="sponsors">
     <div class="ui text container">
       <h3 class="ui header">Sponsors</h3>
@@ -187,13 +173,13 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
   </div>
 
 
-
   <div class="ui inverted vertical footer segment gold-bkg">
     <div class="ui container">
       <p><?= $title ?> &bull; <?= $date ?> &bull; <?= $city ?></p>
       <ul>
         <li><a href="https://indieweb.org/">IndieWebCamp Home Page</a></li>
         <li><a href="https://indieweb.org/code-of-conduct">Code of Conduct</a></li>
+        <li><a href="https://www.mozilla.org/en-US/about/governance/policies/participation/">Mozilla Community Participation Guidelines</a></li>
         <li><a href="https://indieweb.org/images/2/2d/indiewebcamp-sponsorship-prospectus.pdf">Sponsorship Prospectus</a> (PDF)</li>
       </ul>
     </div>
@@ -203,7 +189,7 @@ include(dirname(__FILE__).'/../lib/rsvps.php');
 <script>
 var map = L.map('map', {
   scrollWheelZoom: false,
-  center: [39.277222, -76.612136],
+  center: [52.4994682,13.4491388],
   zoom: 13
 });
 
@@ -212,15 +198,8 @@ var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/ligh
 });
 map.addLayer(layer);
 
-var marker = L.marker([39.277222, -76.612136]).addTo(map);
-marker.bindPopup("<b>Digital Harbor Foundation Tech Center</b><br>1045 Light St.<br>Baltimore, Maryland").openPopup();
-
-// var marker2 = L.marker([45.526159, -122.675330]).addTo(map);
-// marker2.bindPopup("<b>Pints</b><br>412 NW 5th Ave.<br>Portland, Oregon");
-
-// $(function(){
-//   $(".popup").popup();
-// });
+var marker = L.marker([52.4994682,13.4491388]).addTo(map);
+marker.bindPopup("<b>Mozilla Berlin</b><br>GSG-Hof Schlesische Straße<br>Building 3, 3rd floor<br>Schlesische Straße 27,<br>10997 Berlin,<br>Germany").openPopup();
 
 </script>
 <script>
